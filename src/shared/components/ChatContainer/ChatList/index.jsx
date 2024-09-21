@@ -1,17 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "./styles.module.css";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
 
 export default function ChatList() {
-    useEffect(() => {
-        $(".searchlistitem").on("transitionend", function () {
-            var scaledItemWidth = $(this).width();
-            var scaledItemHeight = $(this).height();
-            $(this).parent(".searchlist").width(scaledItemWidth);
-            $(this).parent(".searchlist").height(scaledItemHeight);
-        });
-    }, []);
     return (
         <div className={classes.chatList}>
             <div className={classes.searchBox}>

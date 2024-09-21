@@ -1,0 +1,32 @@
+.sideBarItem{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    text-align: left;
+    padding-left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: 0.1s ease;
+}
+
+.sideBarItem:hover{
+    border-left-color: #5d7faf;
+    color: #5d7faf;
+    font-weight: 600;
+}
+
+.sideBarItem:hover .icon {
+    color: #5d7faf;
+  }
+
+.active{
+    border-left-color: #5d7faf;
+    color: #5d7faf;
+    font-weight: 600;
+}

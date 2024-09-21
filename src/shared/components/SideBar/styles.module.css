@@ -1,0 +1,56 @@
+.sideBar {
+    width: 20%;
+    height: 100%;
+    background-color: #d8d8f4;
+}
+
+.context {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar{
+    width: 80px;
+    height: 80px;
+    background: #FFF;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.avatar img{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+}
+
+.name{
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.name span{
+    color: #000;
+    font-size:14px;
+    font-weight: 600;
+}
+
+.sideBarList{
+    margin-top: 24px;
+    width: 100%;
+    color: #b4b4ce;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+}
+

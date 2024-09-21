@@ -51,7 +51,8 @@ table {
 
 body{
 	overflow-x: hidden;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Montserrat", sans-serif;
+	user-select: none;
 }
 
 a{

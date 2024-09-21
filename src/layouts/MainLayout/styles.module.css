@@ -10,3 +10,17 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
+.chatBox{
+    width: calc(100% - 160px);
+    height: calc(100% - 160px);
+    margin: 80px;
+    background-color: transparent;
+    display: flex;
+}
+
+.chatContainer{
+    width: 80%;
+    height: 100%;
+    background-color: #f3f3ff;
+}

@@ -1,5 +1,5 @@
 .chatList{
-    max-width: 34%;
+    min-width: 34%;
     height: calc(100% - 76px);
 }
 
@@ -28,9 +28,6 @@
     margin-top: 12px;
     width: 100%;
     height: calc(100% - 53px);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -44,6 +41,7 @@
     padding: 14px;
     font-size: 12px;
     cursor: pointer;
+    margin-bottom: 8px;
 }
 
 .avatar{

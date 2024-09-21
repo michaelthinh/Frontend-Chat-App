@@ -7,7 +7,7 @@ import classes from "./styles.module.css";
 export default function ChatWindow({ user }) {
     const [selectedUser, setSelectedUser] = useState(user);
     const [newMessage, setNewMessage] = useState("");
-    // Save chat history for the selected user in local storage whenever it changes
+    const userImg = user.profilePic;
     useEffect(() => {
         console.log(user);
         const storedChats = localStorage.getItem(user.name);
@@ -28,12 +28,10 @@ export default function ChatWindow({ user }) {
         );
     }, [selectedUser.chats]);
 
-    // Handle message input change
     const handleInputChange = (event) => {
         setNewMessage(event.target.value);
     };
 
-    // Handle sending a new message
     const handleSendMessage = () => {
         if (newMessage.trim()) {
             const currentTime = new Date().toLocaleTimeString([], {
@@ -41,7 +39,6 @@ export default function ChatWindow({ user }) {
                 minute: "2-digit",
             });
 
-            // Add the new message to the chat
             const updatedChats = [
                 ...selectedUser.chats,
                 {
@@ -53,7 +50,6 @@ export default function ChatWindow({ user }) {
             ];
             setSelectedUser({ ...selectedUser, chats: updatedChats });
 
-            // Clear the input after sending
             setNewMessage("");
         }
     };
@@ -82,7 +78,7 @@ export default function ChatWindow({ user }) {
                             {item.sender !== "You" && (
                                 <div className={classes.avatar}>
                                     <img
-                                        src="/img/avatar/1.jpg"
+                                        src={userImg}
                                         alt="avatar"
                                         width={36}
                                         height={36}

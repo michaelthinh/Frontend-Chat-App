@@ -1,4 +1,5 @@
 .chatWindow {
+    margin-left: 12px;
     width: 60%;
     height: calc(100% - 96px);
     flex: 1;
@@ -26,7 +27,7 @@
 
 .chatContext {
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 110px);
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -43,87 +44,140 @@
     margin-bottom: 12px;
 }
 
-.messages::-webkit-scrollbar{
-	width: 5px;
+.messages::-webkit-scrollbar {
+    width: 5px;
     left: 50px;
 }
 
-.messages::-webkit-scrollbar-thumb{
+.messages::-webkit-scrollbar-thumb {
     background-color: #b8b7bd;
     border-radius: 100rem;
 }
 
-.messages::-webkit-scrollbar-track{
-	background-color: transparent;
+.messages::-webkit-scrollbar-track {
+    background-color: transparent;
 }
 
-.messageItem{
+.messageItem {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.messageItem.sent{
+.messageItem.sent {
     justify-content: flex-end;
 }
 
-.messageItem.sent .message{
+.messageItem.sent .message {
     background-color: #298af3;
-    
+
 }
 
-.messageItem.sent .message span{
+.messageItem.sent .message span {
     color: #FFF;
 }
 
-.messageItem .avatar{
+.messageItem .avatar {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
 }
 
-.messageItem .avatar img{
+.messageItem .avatar img {
     border-radius: 50%;
 }
 
-.messageItem .avatar span{
+.messageItem .avatar span {
     font-size: 10px;
     font-weight: 600;
     color: #9c9c9c;
 }
 
-.messageItem .message{
+.messageItem .message {
     margin-left: 8px;
     padding: 8px 16px;
-    background-color:  #e8e7ec;
+    background-color: #e8e7ec;
     border-radius: 20px;
     text-align: justify;
 }
 
-.messageItem .message span{
+.messageItem .message span {
     font-size: 12px;
     font-weight: 500;
     color: #000;
 }
 
 .messageInputSection {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.recommend {
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
-  }
+}
 
-  .messageInput {
-    flex: 1;
+.recommendItem{
+    margin-right: 8px;
+    padding: 8px 12px;
+    background: #FFF;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.recommendItem span{
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #514e4e;
+}
+
+.sectionContext {
+    background: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 5px;
+}
+
+
+.sectionLeft {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.messageInput {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .sendButton {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
+    color: #000;
+    background: transparent;
+    outline: none;
     border: none;
-    border-radius: 5px;
-  }
+    font-size: 14px;
+}
+
+.sectionRight {
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.sendButton {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #2e87df;
+}
+
+.icon{
+    cursor: pointer;
+}

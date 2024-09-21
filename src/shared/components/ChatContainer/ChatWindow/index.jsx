@@ -1,4 +1,8 @@
+import { faFaceSmile, faPaperPlane } from "@fortawesome/free-regular-svg-icons";
 import classes from "./styles.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 
 const messages = [
     {
@@ -79,15 +83,46 @@ export default function ChatWindow() {
                     ))}
                 </div>
             </div>
-            {/* <div className="messageInputSection">
-                <input
-                    type="text"
-                    placeholder="Type a message..."
-                    className="messageInput"
-                />
-
-                <button className="sendButton">Send</button>
-            </div> */}
+            <div className={classes.messageInputSection}>
+                <div className={classes.recommend}>
+                    <div className={classes.recommendItem}>
+                        <span>Request visit</span>
+                    </div>
+                    <div className={classes.recommendItem}>
+                        <span>Make Offer</span>
+                    </div>
+                </div>
+                <div className={classes.sectionContext}>
+                    <div className={classes.sectionLeft}>
+                        <FontAwesomeIcon
+                            className={classes.icon}
+                            icon={faFaceSmile}
+                            size="lg"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Type a message..."
+                            className={classes.messageInput}
+                        />
+                    </div>
+                    <div className={classes.sectionRight}>
+                        <FontAwesomeIcon
+                            className={classes.icon}
+                            icon={faPaperclip}
+                            color=""
+                            size="xs"
+                        />
+                        <div className={classes.sendButton}>
+                            <FontAwesomeIcon
+                                className={classes.icon}
+                                icon={faPaperPlane}
+                                color="#FFF"
+                                size="xs"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

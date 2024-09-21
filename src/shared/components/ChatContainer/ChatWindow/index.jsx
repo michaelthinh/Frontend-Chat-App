@@ -1,49 +1,63 @@
+import { useState, useEffect } from "react";
 import { faFaceSmile, faPaperPlane } from "@fortawesome/free-regular-svg-icons";
-import classes from "./styles.module.css";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
+import classes from "./styles.module.css";
 
-const messages = [
-    {
-        from: "Hali",
-        text: "We invite you at our office for a visit ",
-        time: "10:00",
-    },
+export default function ChatWindow({ user }) {
+    const [selectedUser, setSelectedUser] = useState(user);
+    const [newMessage, setNewMessage] = useState("");
+    // Save chat history for the selected user in local storage whenever it changes
+    useEffect(() => {
+        console.log(user);
+        const storedChats = localStorage.getItem(user.name);
+        if (storedChats) {
+            setSelectedUser({
+                ...user,
+                chats: JSON.parse(storedChats),
+            });
+            console.log("hit");
+        } else {
+            setSelectedUser(user);
+        }
+    }, [user]);
+    useEffect(() => {
+        localStorage.setItem(
+            selectedUser.name,
+            JSON.stringify(selectedUser.chats)
+        );
+    }, [selectedUser.chats]);
 
-    {
-        from: "You",
-        text: "It’s like a dream come true, thank you so much!",
-        time: "10:05",
-    },
-    { from: "Hali", text: "Welcome", time: "10:06" },
-    {
-        from: "Hali",
-        text: "We invite you at our office for a visit ",
-        time: "10:00",
-    },
+    // Handle message input change
+    const handleInputChange = (event) => {
+        setNewMessage(event.target.value);
+    };
 
-    {
-        from: "You",
-        text: "It’s like a dream come true, thank you so much!",
-        time: "10:05",
-    },
-    { from: "Hali", text: "Welcome", time: "10:06" },
-    {
-        from: "Hali",
-        text: "We invite you at our office for a visit ",
-        time: "10:00",
-    },
+    // Handle sending a new message
+    const handleSendMessage = () => {
+        if (newMessage.trim()) {
+            const currentTime = new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+            });
 
-    {
-        from: "You",
-        text: "It’s like a dream come true, thank you so much!",
-        time: "10:05",
-    },
-    { from: "Hali", text: "Welcome", time: "10:06" },
-];
+            // Add the new message to the chat
+            const updatedChats = [
+                ...selectedUser.chats,
+                {
+                    sender: "You",
+                    message: newMessage,
+                    timestamp: Date.now(),
+                    timeSent: currentTime,
+                },
+            ];
+            setSelectedUser({ ...selectedUser, chats: updatedChats });
 
-export default function ChatWindow() {
+            // Clear the input after sending
+            setNewMessage("");
+        }
+    };
+
     return (
         <div className={classes.chatWindow}>
             <div className={classes.chatInfo}>
@@ -51,21 +65,21 @@ export default function ChatWindow() {
                     <span>Gold Coast</span>
                 </div>
                 <div className={classes.sender}>
-                    <span>From: Hali</span>
+                    <span>From: {user.name}</span>
                 </div>
             </div>
             <div className={classes.chatContext}>
                 <div className={classes.messages}>
-                    {messages.map((item, index) => (
+                    {selectedUser.chats.map((item, index) => (
                         <div
                             key={index}
                             className={
-                                item.from === "You"
+                                item.sender === "You"
                                     ? `${classes.messageItem} ${classes.sent}`
                                     : `${classes.messageItem}`
                             }
                         >
-                            {item.from !== "You" && (
+                            {item.sender !== "You" && (
                                 <div className={classes.avatar}>
                                     <img
                                         src="/img/avatar/1.jpg"
@@ -73,11 +87,11 @@ export default function ChatWindow() {
                                         width={36}
                                         height={36}
                                     />
-                                    <span>{item.time}</span>
+                                    <span>{item.timeSent}</span>
                                 </div>
                             )}
                             <div className={classes.message}>
-                                <span>{item.text}</span>
+                                <span>{item.message}</span>
                             </div>
                         </div>
                     ))}
@@ -103,6 +117,8 @@ export default function ChatWindow() {
                             type="text"
                             placeholder="Type a message..."
                             className={classes.messageInput}
+                            value={newMessage}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className={classes.sectionRight}>
@@ -112,7 +128,10 @@ export default function ChatWindow() {
                             color=""
                             size="xs"
                         />
-                        <div className={classes.sendButton}>
+                        <div
+                            className={classes.sendButton}
+                            onClick={handleSendMessage}
+                        >
                             <FontAwesomeIcon
                                 className={classes.icon}
                                 icon={faPaperPlane}

@@ -1,8 +1,16 @@
 import classes from "./styles.module.css";
 
-export default function SearchListItem({ user }) {
+export default function SearchListItem({ user, onUserSelect }) {
+    const handleUserClick = (user) => {
+        onUserSelect(user);
+    };
     return (
-        <div className={classes.searchListItem}>
+        <div
+            className={classes.searchListItem}
+            onClick={() => {
+                handleUserClick(user);
+            }}
+        >
             <div className={classes.avatar}>
                 <img src={user.profilePic} alt="avatar" />
             </div>

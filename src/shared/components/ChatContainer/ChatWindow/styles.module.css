@@ -1,3 +1,129 @@
-.chatWindow{
-    width: 66%;
+.chatWindow {
+    width: 60%;
+    height: calc(100% - 96px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
+
+.chatInfo {
+    margin-top: -8px;
+    border-bottom: 1px solid #c8c8d5;
+    padding-bottom: 8px;
+    margin-left: 8px;
+}
+
+.chatName span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.sender span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #999a9e;
+}
+
+.chatContext {
+    width: 100%;
+    height: calc(100% - 80px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+    margin-top: 16px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+.messages::-webkit-scrollbar{
+	width: 5px;
+    left: 50px;
+}
+
+.messages::-webkit-scrollbar-thumb{
+    background-color: #b8b7bd;
+    border-radius: 100rem;
+}
+
+.messages::-webkit-scrollbar-track{
+	background-color: transparent;
+}
+
+.messageItem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.messageItem.sent{
+    justify-content: flex-end;
+}
+
+.messageItem.sent .message{
+    background-color: #298af3;
+    
+}
+
+.messageItem.sent .message span{
+    color: #FFF;
+}
+
+.messageItem .avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.messageItem .avatar img{
+    border-radius: 50%;
+}
+
+.messageItem .avatar span{
+    font-size: 10px;
+    font-weight: 600;
+    color: #9c9c9c;
+}
+
+.messageItem .message{
+    margin-left: 8px;
+    padding: 8px 16px;
+    background-color:  #e8e7ec;
+    border-radius: 20px;
+    text-align: justify;
+}
+
+.messageItem .message span{
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+}
+
+.messageInputSection {
+    display: flex;
+    align-items: center;
+  }
+
+  .messageInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .sendButton {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }

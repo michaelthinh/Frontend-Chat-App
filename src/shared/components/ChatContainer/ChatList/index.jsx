@@ -17,6 +17,18 @@ export default function ChatList() {
             </div>
             <div className={classes.searchList}>
                 <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
+                <SearchListItem />
             </div>
         </div>
     );

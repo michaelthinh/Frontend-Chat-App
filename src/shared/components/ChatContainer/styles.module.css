@@ -44,7 +44,7 @@
 }
 
 .chatContext{
-    width: 100%;
+    width: calc(100% - 24px);
     height: 100%;
     display: flex;
     gap:12px;

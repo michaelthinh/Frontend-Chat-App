@@ -1,5 +1,5 @@
 .chatList{
-    min-width: 34%;
+    width: 40%;
     height: calc(100% - 76px);
 }
 
@@ -26,9 +26,24 @@
 
 .searchList{
     margin-top: 12px;
+    padding-right: 8px;
     width: 100%;
     height: calc(100% - 53px);
     overflow-y: auto;
     overflow-x: hidden;
+    scroll-margin: 20px;
 }
 
+.searchList::-webkit-scrollbar{
+	width: 5px;
+    left: 50px;
+}
+
+.searchList::-webkit-scrollbar-thumb{
+    background-color: #b8b7bd;
+    border-radius: 100rem;
+}
+
+.searchList::-webkit-scrollbar-track{
+	background-color: transparent;
+}

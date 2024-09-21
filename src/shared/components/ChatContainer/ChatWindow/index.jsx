@@ -95,10 +95,24 @@ export default function ChatWindow({ user }) {
             </div>
             <div className={classes.messageInputSection}>
                 <div className={classes.recommend}>
-                    <div className={classes.recommendItem}>
+                    <div
+                        className={classes.recommendItem}
+                        onClick={() =>
+                            setNewMessage(
+                                "Hey i'm free this weekend, can i come to your place?"
+                            )
+                        }
+                    >
                         <span>Request visit</span>
                     </div>
-                    <div className={classes.recommendItem}>
+                    <div
+                        className={classes.recommendItem}
+                        onClick={() =>
+                            setNewMessage(
+                                "I have an interesting offer for you! Are you free this weekend?"
+                            )
+                        }
+                    >
                         <span>Make Offer</span>
                     </div>
                 </div>

@@ -7,10 +7,17 @@ import { mockUsers } from "../../../constants/mockUsers";
 
 export default function ChatList({ onUserSelect }) {
     const [selectedUserId, setSelectedUserId] = useState(null);
+    const [searchInput, setSearchInput] = useState("");
+
     const handleUserClick = (user) => {
         setSelectedUserId(user.id);
         onUserSelect(user);
     };
+
+    const filteredUsers = mockUsers.filter((user) =>
+        user.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
     return (
         <div className={classes.chatList}>
             <div className={classes.searchBox}>
@@ -20,10 +27,12 @@ export default function ChatList({ onUserSelect }) {
                     type="text"
                     name="name"
                     placeholder="Search"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
                 />
             </div>
             <div className={classes.searchList}>
-                {mockUsers.map((user) => (
+                {filteredUsers.map((user) => (
                     <SearchListItem
                         key={user.id}
                         user={user}

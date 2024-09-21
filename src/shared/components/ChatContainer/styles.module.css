@@ -1,26 +1,46 @@
 .chatContainer{
     width: 80%;
-    height: 100%;
     background-color: #f3f3ff;
     color: #000;
     overflow: hidden;
+    padding-top: 24px;
+    padding-left: 64px;
+    padding-right: 64px;
 }
 
 .statusLine{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .status{
+    margin-right: 36px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
+.status span{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status .icon{
+    cursor: pointer;
 }
 
 .bell{
-
+    cursor: pointer;
 }
 
 .chatLine{
+    margin-top: 8px;
+}
 
+.chatLine span{
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .chatContext{
@@ -28,4 +48,6 @@
     height: 100%;
     display: flex;
     gap:12px;
+    margin-top: 20px;
+    margin-left: 24px;
 }

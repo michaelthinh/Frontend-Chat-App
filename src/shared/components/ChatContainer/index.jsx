@@ -1,4 +1,5 @@
-import { faBell, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faBell } from "@fortawesome/free-regular-svg-icons";
 import classes from "./styles.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +12,11 @@ export default function ChatContainer() {
             <div className={classes.statusLine}>
                 <div className={classes.status}>
                     <span>Status: Sale</span>
-                    <FontAwesomeIcon icon={faChevronDown} size="sm" />
+                    <FontAwesomeIcon
+                        className={classes.icon}
+                        icon={faCaretDown}
+                        size="sm"
+                    />
                 </div>
                 <div className={classes.bell}>
                     <FontAwesomeIcon icon={faBell} size="sm" />

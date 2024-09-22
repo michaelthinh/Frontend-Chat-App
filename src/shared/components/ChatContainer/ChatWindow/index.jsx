@@ -5,6 +5,10 @@ import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import classes from "./styles.module.css";
 
 import { formatTimeSent } from "../../../../utils/timeFormatting";
+import {
+    getRandomOfferMessage,
+    getRandomVisitMessage,
+} from "../../../constants/chatExamples";
 
 export default function ChatWindow({ user, onUpdateUser }) {
     const [selectedUser, setSelectedUser] = useState(user);
@@ -111,21 +115,13 @@ export default function ChatWindow({ user, onUpdateUser }) {
                 <div className={classes.recommend}>
                     <div
                         className={classes.recommendItem}
-                        onClick={() =>
-                            setNewMessage(
-                                "Hey I'm free this weekend, can I come to your place?"
-                            )
-                        }
+                        onClick={() => setNewMessage(getRandomVisitMessage())}
                     >
                         <span>Request visit</span>
                     </div>
                     <div
                         className={classes.recommendItem}
-                        onClick={() =>
-                            setNewMessage(
-                                "I have an interesting offer for you! Are you free this weekend?"
-                            )
-                        }
+                        onClick={() => setNewMessage(getRandomOfferMessage())}
                     >
                         <span>Make Offer</span>
                     </div>

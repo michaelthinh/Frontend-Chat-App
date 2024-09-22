@@ -180,6 +180,8 @@
     height: 30px;
     border-radius: 50%;
     background-color: #2e87df;
+    cursor: pointer;
+    box-shadow: #91bbe5 0px 2px 1px, #9ebedf 0px 4px 2px, #a1bcd7 0px 8px 4px;
 }
 
 .icon {

@@ -22,6 +22,7 @@ export default function ChatWindow({ user, onUpdateUser }) {
                 ...user,
                 chats: JSON.parse(storedChats),
             });
+            setNewMessage("");
         } else {
             setSelectedUser(user);
         }

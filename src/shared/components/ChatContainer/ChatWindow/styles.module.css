@@ -46,6 +46,7 @@
     margin-top: 16px;
     overflow-y: auto;
     margin-bottom: 12px;
+    padding-right: 24px;
 }
 
 .messages::-webkit-scrollbar {

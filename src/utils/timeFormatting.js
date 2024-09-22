@@ -9,7 +9,7 @@ export function getLastMessage(chatHistory) {
     const lastMessage = chatHistory[chatHistory.length - 1];
     return {
         lastMessage: lastMessage.message,
-        lastMessageTime: formatTime(lastMessage.timestamp),
+        lastMessageTime: lastMessage.timestamp,
     };
 }
 

@@ -4,23 +4,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import classes from "./styles.module.css";
 
-export default function ChatWindow({ user }) {
+export default function ChatWindow({ user, onUpdateChats }) {
     const [selectedUser, setSelectedUser] = useState(user);
     const [newMessage, setNewMessage] = useState("");
     const userImg = user.profilePic;
+
     useEffect(() => {
-        console.log(user);
         const storedChats = localStorage.getItem(user.name);
         if (storedChats) {
             setSelectedUser({
                 ...user,
                 chats: JSON.parse(storedChats),
             });
-            console.log("hit");
         } else {
             setSelectedUser(user);
         }
     }, [user]);
+
     useEffect(() => {
         localStorage.setItem(
             selectedUser.name,
@@ -45,10 +45,14 @@ export default function ChatWindow({ user }) {
                     sender: "You",
                     message: newMessage,
                     timestamp: Date.now(),
-                    timeSent: currentTime,
                 },
             ];
-            setSelectedUser({ ...selectedUser, chats: updatedChats });
+            const updatedUser = { ...selectedUser, chats: updatedChats };
+
+            setSelectedUser(updatedUser);
+
+            // Update lastMessage and lastMessageTime in the parent
+            onUpdateChats(updatedUser);
 
             setNewMessage("");
         }
@@ -99,7 +103,7 @@ export default function ChatWindow({ user }) {
                         className={classes.recommendItem}
                         onClick={() =>
                             setNewMessage(
-                                "Hey i'm free this weekend, can i come to your place?"
+                                "Hey I'm free this weekend, can I come to your place?"
                             )
                         }
                     >

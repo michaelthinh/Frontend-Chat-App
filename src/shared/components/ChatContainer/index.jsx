@@ -35,8 +35,8 @@ export default function ChatContainer() {
             user.id === updatedUser.id
                 ? {
                       ...updatedUser,
-                      lastMessage: lastChat.message,
-                      lastMessageTime: lastChat.timestamp,
+                      lastMessage: lastChat?.message || "",
+                      lastMessageTime: lastChat?.timestamp || "",
                   }
                 : user
         );

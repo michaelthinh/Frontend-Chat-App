@@ -177,18 +177,7 @@ export const mockUsers = [
         id: 10,
         name: "Noah Harris",
         profilePic: "/img/avatar/10.jpg",
-        chats: [
-            {
-                sender: "Noah Harris",
-                message: "I'm on my way.",
-                timestamp: 1695047400000,
-            },
-            {
-                sender: "You",
-                message: "Great, see you soon!",
-                timestamp: 1695048000000,
-            },
-        ],
+        chats: [],
         unreadMessages: 0,
     },
 ];

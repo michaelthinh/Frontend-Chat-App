@@ -83,33 +83,39 @@ export default function ChatWindow({ user, onUpdateUser }) {
             </div>
             <div className={classes.chatContext}>
                 <div className={classes.messages}>
-                    {selectedUser.chats.map((item, index) => (
-                        <div
-                            key={index}
-                            className={
-                                item.sender === "You"
-                                    ? `${classes.messageItem} ${classes.sent}`
-                                    : `${classes.messageItem}`
-                            }
-                        >
-                            {item.sender !== "You" && (
-                                <div className={classes.avatar}>
-                                    <img
-                                        src={userImg}
-                                        alt="avatar"
-                                        width={36}
-                                        height={36}
-                                    />
-                                    <span>
-                                        {formatTimeSent(item.timestamp)}
-                                    </span>
+                    {selectedUser.chats.length > 0 &&
+                        selectedUser.chats.map((item, index) => (
+                            <div
+                                key={index}
+                                className={
+                                    item.sender === "You"
+                                        ? `${classes.messageItem} ${classes.sent}`
+                                        : `${classes.messageItem}`
+                                }
+                            >
+                                {item.sender !== "You" && (
+                                    <div className={classes.avatar}>
+                                        <img
+                                            src={userImg}
+                                            alt="avatar"
+                                            width={36}
+                                            height={36}
+                                        />
+                                        <span>
+                                            {formatTimeSent(item.timestamp)}
+                                        </span>
+                                    </div>
+                                )}
+                                <div className={classes.message}>
+                                    <span>{item.message}</span>
                                 </div>
-                            )}
-                            <div className={classes.message}>
-                                <span>{item.message}</span>
                             </div>
+                        ))}
+                    {selectedUser.chats.length === 0 && (
+                        <div className={classes.newChat}>
+                            You too haven't chat anything before.
                         </div>
-                    ))}
+                    )}
                 </div>
             </div>
             <div className={classes.messageInputSection}>

@@ -35,7 +35,11 @@ export default function SearchListItem({ isActive, user, onUserSelect }) {
                         <span className={classes.name}>{user.name}</span>
                         <span className={classes.lastMessage}>
                             {getLastSender(user.chats) === "You" && "You: "}
-                            {user.lastMessage}
+                            {user.lastMessage || (
+                                <span className={classes.newChat}>
+                                    --- Start a new conversation now ---
+                                </span>
+                            )}
                         </span>
                     </div>
                     <div className={classes.status}>

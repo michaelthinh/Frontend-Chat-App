@@ -1,7 +1,9 @@
 import { useState } from "react";
 import classes from "./styles.module.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 import SearchListItem from "./SearchListItem";
 
 export default function ChatList({ users, onUserSelect }) {

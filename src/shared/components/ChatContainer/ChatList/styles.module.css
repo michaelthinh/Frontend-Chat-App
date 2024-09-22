@@ -24,7 +24,7 @@
     color: #b4b4ce;
 }
 
-.scrollWrapper{
+.scrollWrapper {
     width: 100%;
     height: calc(100% - 40px);
 }

@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import classes from "./styles.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
-import classes from "./styles.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import ChatList from "./ChatList";
 import ChatWindow from "./ChatWindow";
+
 import { mockUsers as initialUsers } from "../../constants/mockUsers";
+
 export default function ChatContainer() {
     const [selectedUser, setSelectedUser] = useState(null);
     const [users, setUsers] = useState([]);

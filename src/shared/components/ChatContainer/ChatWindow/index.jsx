@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { faFaceSmile, faPaperPlane } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import classes from "./styles.module.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFaceSmile, faPaperPlane } from "@fortawesome/free-regular-svg-icons";
+import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
+
 import { formatTimeSent } from "../../../../utils/timeFormatting";
+
 import {
     getRandomOfferMessage,
     getRandomVisitMessage,

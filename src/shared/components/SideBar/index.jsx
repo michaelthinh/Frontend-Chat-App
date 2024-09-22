@@ -18,10 +18,10 @@ export default function SideBar() {
         <div className={classes.sideBar}>
             <div className={classes.context}>
                 <div className={classes.avatar}>
-                    <img src="/img/avatar/50.jpg" alt="avatar" />
+                    <img src="/img/avatar/thinhava.jpg" alt="avatar" />
                 </div>
                 <div className={classes.name}>
-                    <span>Jimi Hendrix</span>
+                    <span>Michael Thinh</span>
                     <div
                         className={
                             isShown

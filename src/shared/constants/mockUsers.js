@@ -4,7 +4,7 @@ export const mockUsers = [
     {
         id: 1,
         name: "John Doe",
-        profilePic: "https://via.placeholder.com/50?text=JD",
+        profilePic: "/img/avatar/1.jpg",
         chats: [
             {
                 sender: "John Doe",
@@ -27,7 +27,7 @@ export const mockUsers = [
     {
         id: 2,
         name: "Jane Smith",
-        profilePic: "https://via.placeholder.com/50?text=JS",
+        profilePic: "/img/avatar/2.jpg",
         chats: [
             {
                 sender: "You",
@@ -50,7 +50,7 @@ export const mockUsers = [
     {
         id: 3,
         name: "Alice Johnson",
-        profilePic: "https://via.placeholder.com/50?text=AJ",
+        profilePic: "/img/avatar/3.jpg",
         chats: [
             {
                 sender: "Alice Johnson",
@@ -68,7 +68,7 @@ export const mockUsers = [
     {
         id: 4,
         name: "Michael Brown",
-        profilePic: "https://via.placeholder.com/50?text=MB",
+        profilePic: "/img/avatar/4.jpg",
         chats: [
             {
                 sender: "Michael Brown",
@@ -86,7 +86,7 @@ export const mockUsers = [
     {
         id: 5,
         name: "Emma Davis",
-        profilePic: "https://via.placeholder.com/50?text=ED",
+        profilePic: "/img/avatar/5.jpg",
         chats: [
             {
                 sender: "Emma Davis",
@@ -104,7 +104,7 @@ export const mockUsers = [
     {
         id: 6,
         name: "Oliver Wilson",
-        profilePic: "https://via.placeholder.com/50?text=OW",
+        profilePic: "/img/avatar/6.jpg",
         chats: [
             {
                 sender: "You",
@@ -122,7 +122,7 @@ export const mockUsers = [
     {
         id: 7,
         name: "Sophia Martinez",
-        profilePic: "https://via.placeholder.com/50?text=SM",
+        profilePic: "/img/avatar/7.jpg",
         chats: [
             {
                 sender: "Sophia Martinez",
@@ -140,7 +140,7 @@ export const mockUsers = [
     {
         id: 8,
         name: "Liam Thompson",
-        profilePic: "https://via.placeholder.com/50?text=LT",
+        profilePic: "/img/avatar/8.jpg",
         chats: [
             {
                 sender: "Liam Thompson",
@@ -158,7 +158,7 @@ export const mockUsers = [
     {
         id: 9,
         name: "Ava White",
-        profilePic: "https://via.placeholder.com/50?text=AW",
+        profilePic: "/img/avatar/9.jpg",
         chats: [
             {
                 sender: "You",
@@ -176,7 +176,7 @@ export const mockUsers = [
     {
         id: 10,
         name: "Noah Harris",
-        profilePic: "https://via.placeholder.com/50?text=NH",
+        profilePic: "/img/avatar/10.jpg",
         chats: [
             {
                 sender: "Noah Harris",

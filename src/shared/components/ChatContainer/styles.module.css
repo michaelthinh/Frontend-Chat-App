@@ -4,7 +4,7 @@
     color: #000;
     overflow: hidden;
     padding-top: 24px;
-    padding-left: 64px;
+    padding-left: 48px;
     padding-right: 64px;
 }
 
@@ -49,7 +49,7 @@
     display: flex;
     gap:12px;
     margin-top: 10px;
-    margin-left: 24px;
+    margin-left: 12px;
 }
 
 .noMessages{

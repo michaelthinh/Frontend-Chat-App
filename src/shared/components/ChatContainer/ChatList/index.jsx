@@ -43,14 +43,17 @@ export default function ChatList({ users, onUserSelect }) {
                     onChange={(e) => setSearchInput(e.target.value)}
                 />
             </div>
-            <div className={classes.searchList}>
-                {filteredUsers.map((user) => (
-                    <SearchListItem
-                        key={user.id}
-                        user={user}
-                        onUserSelect={() => handleUserClick(user)}
-                    />
-                ))}
+            <div className={classes.scrollWrapper}>
+                <div className={classes.searchList}>
+                    {filteredUsers.map((user) => (
+                        <SearchListItem
+                            isActive={selectedUserId === user.id}
+                            key={user.id}
+                            user={user}
+                            onUserSelect={() => handleUserClick(user)}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

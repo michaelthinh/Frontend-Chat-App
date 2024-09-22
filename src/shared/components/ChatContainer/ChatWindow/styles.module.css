@@ -1,6 +1,6 @@
 .chatWindow {
-    margin-left: 12px;
     width: 60%;
+    margin-left: 12px;
     height: calc(100% - 96px);
     flex: 1;
     display: flex;
@@ -8,7 +8,7 @@
 }
 
 .chatInfo {
-    margin-top: -8px;
+    margin-top: -9px;
     border-bottom: 1px solid #c8c8d5;
     padding-bottom: 8px;
     margin-left: 8px;

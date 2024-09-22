@@ -79,8 +79,8 @@ export default function ChatContainer() {
                         onUpdateUser={handleUpdateUser}
                     />
                 ) : (
-                    <div className="select-user-message">
-                        Please select a user to start chatting
+                    <div className={classes.noMessages}>
+                        <span>Please select a user to start chatting</span>
                     </div>
                 )}
             </div>

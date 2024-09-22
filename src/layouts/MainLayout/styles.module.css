@@ -12,9 +12,9 @@
 }
 
 .chatBox{
-    width: calc(100% - 160px);
+    width: calc(100% - 240px);
     height: calc(100% - 80px);
-    margin: 40px 80px;
+    margin: 40px 120px;
     background-color: transparent;
     display: flex;
 }

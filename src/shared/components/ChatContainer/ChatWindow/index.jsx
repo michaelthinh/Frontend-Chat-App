@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import classes from "./styles.module.css";
 
+import { formatTimeSent } from "../../../../utils/timeFormatting";
+
 export default function ChatWindow({ user, onUpdateUser }) {
     const [selectedUser, setSelectedUser] = useState(user);
     const [newMessage, setNewMessage] = useState("");
@@ -47,7 +49,11 @@ export default function ChatWindow({ user, onUpdateUser }) {
             };
 
             const updatedChats = [...selectedUser.chats, newChat];
-            const updatedUser = { ...selectedUser, chats: updatedChats };
+            const updatedUser = {
+                ...selectedUser,
+                chats: updatedChats,
+                unreadMessages: 0,
+            };
 
             setSelectedUser(updatedUser);
 
@@ -64,7 +70,10 @@ export default function ChatWindow({ user, onUpdateUser }) {
                     <span>Gold Coast</span>
                 </div>
                 <div className={classes.sender}>
-                    <span>From: {user.name}</span>
+                    <span>
+                        From:{" "}
+                        <span className={classes.username}>{user.name}</span>
+                    </span>
                 </div>
             </div>
             <div className={classes.chatContext}>
@@ -86,7 +95,9 @@ export default function ChatWindow({ user, onUpdateUser }) {
                                         width={36}
                                         height={36}
                                     />
-                                    <span>{item.timeSent}</span>
+                                    <span>
+                                        {formatTimeSent(item.timestamp)}
+                                    </span>
                                 </div>
                             )}
                             <div className={classes.message}>
@@ -132,6 +143,7 @@ export default function ChatWindow({ user, onUpdateUser }) {
                             className={classes.messageInput}
                             value={newMessage}
                             onChange={handleInputChange}
+                            autoComplete="off"
                         />
                     </div>
                     <div className={classes.sectionRight}>

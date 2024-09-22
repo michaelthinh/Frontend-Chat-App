@@ -8,8 +8,8 @@ export function formatTime(timestamp) {
 export function getLastMessage(chatHistory) {
     const lastMessage = chatHistory[chatHistory.length - 1];
     return {
-        lastMessage: lastMessage.message,
-        lastMessageTime: lastMessage.timestamp,
+        lastMessage: lastMessage?.message || "",
+        lastMessageTime: lastMessage?.timestamp || "",
     };
 }
 

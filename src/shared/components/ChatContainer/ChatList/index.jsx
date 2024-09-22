@@ -8,16 +8,14 @@ export default function ChatList({ users, onUserSelect }) {
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [searchInput, setSearchInput] = useState("");
 
-    const sortedUsers = users
-        .filter((user) => user.chats.length > 0)
-        .sort((a, b) => {
-            const lastMessageA = a.chats[a.chats.length - 1];
-            const lastMessageB = b.chats[b.chats.length - 1];
+    const sortedUsers = users.sort((a, b) => {
+        const lastMessageA = a.chats[a.chats.length - 1];
+        const lastMessageB = b.chats[b.chats.length - 1];
 
-            if (!lastMessageA || !lastMessageB) return 0;
+        if (!lastMessageA || !lastMessageB) return 0;
 
-            return lastMessageB.timestamp - lastMessageA.timestamp;
-        });
+        return lastMessageB.timestamp - lastMessageA.timestamp;
+    });
 
     const filteredUsers = sortedUsers.filter((user) =>
         user.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -26,11 +24,10 @@ export default function ChatList({ users, onUserSelect }) {
     const handleUserClick = (user) => {
         setSelectedUserId(user.id);
 
-        const updatedUsers = users.map((u) =>
-            u.id === user.id ? { ...u, unreadMessages: 0 } : u
-        );
-
-        onUserSelect({ ...user, unreadMessages: 0 });
+        onUserSelect({
+            ...user,
+            unreadMessages: 0,
+        });
     };
 
     return (

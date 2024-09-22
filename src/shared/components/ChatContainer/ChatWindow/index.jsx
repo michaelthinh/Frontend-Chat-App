@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import classes from "./styles.module.css";
 
-export default function ChatWindow({ user, onUpdateChats }) {
+export default function ChatWindow({ user, onUpdateUser }) {
     const [selectedUser, setSelectedUser] = useState(user);
     const [newMessage, setNewMessage] = useState("");
     const userImg = user.profilePic;
@@ -39,20 +39,19 @@ export default function ChatWindow({ user, onUpdateChats }) {
                 minute: "2-digit",
             });
 
-            const updatedChats = [
-                ...selectedUser.chats,
-                {
-                    sender: "You",
-                    message: newMessage,
-                    timestamp: Date.now(),
-                },
-            ];
+            const newChat = {
+                sender: "You",
+                message: newMessage,
+                timestamp: Date.now(),
+                timeSent: currentTime,
+            };
+
+            const updatedChats = [...selectedUser.chats, newChat];
             const updatedUser = { ...selectedUser, chats: updatedChats };
 
             setSelectedUser(updatedUser);
 
-            // Update lastMessage and lastMessageTime in the parent
-            onUpdateChats(updatedUser);
+            onUpdateUser(updatedUser);
 
             setNewMessage("");
         }

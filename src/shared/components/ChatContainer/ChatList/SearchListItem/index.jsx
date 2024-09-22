@@ -9,7 +9,6 @@ const formatDate = (time) => {
 };
 
 export default function SearchListItem({ user, onUserSelect }) {
-    console.log(user);
     const handleUserClick = (user) => {
         onUserSelect(user);
     };

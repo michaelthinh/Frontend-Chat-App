@@ -6,29 +6,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ChatList from "./ChatList";
 import ChatWindow from "./ChatWindow";
 import { mockUsers as initialUsers } from "../../constants/mockUsers";
-
 export default function ChatContainer() {
     const [selectedUser, setSelectedUser] = useState(null);
     const [users, setUsers] = useState([]);
 
-    const updateUsersWithLastMessage = (users) => {
-        return users.map((user) => {
-            const lastChat = user.chats[user.chats.length - 1];
-            return {
-                ...user,
-                lastMessage: lastChat ? lastChat.message : "",
-                lastMessageTime: lastChat ? lastChat.timestamp : "",
-            };
-        });
-    };
-
     useEffect(() => {
         const storedUsers = localStorage.getItem("users");
         if (storedUsers) {
-            const parsedUsers = JSON.parse(storedUsers);
-            setUsers(updateUsersWithLastMessage(parsedUsers));
+            setUsers(JSON.parse(storedUsers));
         } else {
-            setUsers(updateUsersWithLastMessage(initialUsers));
+            setUsers(initialUsers);
         }
     }, []);
 
@@ -40,20 +27,16 @@ export default function ChatContainer() {
 
     const handleChangeUser = (user) => {
         setSelectedUser(user);
-        console.log("Selected User:", user);
     };
 
-    const handleUpdateChats = (updatedUser) => {
+    const handleUpdateUser = (updatedUser) => {
+        const lastChat = updatedUser.chats[updatedUser.chats.length - 1];
         const updatedUsers = users.map((user) =>
             user.id === updatedUser.id
                 ? {
                       ...updatedUser,
-                      lastMessage:
-                          updatedUser.chats[updatedUser.chats.length - 1]
-                              .message,
-                      lastMessageTime:
-                          updatedUser.chats[updatedUser.chats.length - 1]
-                              .timestamp,
+                      lastMessage: lastChat.message,
+                      lastMessageTime: lastChat.timestamp,
                   }
                 : user
         );
@@ -79,11 +62,21 @@ export default function ChatContainer() {
                 <span>Chat</span>
             </div>
             <div className={classes.chatContext}>
-                <ChatList users={users} onUserSelect={handleChangeUser} />
+                <ChatList
+                    users={users}
+                    onUserSelect={(user) => {
+                        const clickedUser = users.find((u) => u.id === user.id);
+                        handleUpdateUser({
+                            ...clickedUser,
+                            unreadMessages: 0,
+                        });
+                        handleChangeUser(clickedUser);
+                    }}
+                />
                 {selectedUser ? (
                     <ChatWindow
                         user={selectedUser}
-                        onUpdateChats={handleUpdateChats}
+                        onUpdateUser={handleUpdateUser}
                     />
                 ) : (
                     <div className="select-user-message">

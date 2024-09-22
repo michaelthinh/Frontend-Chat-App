@@ -1,5 +1,7 @@
 import classes from "./styles.module.css";
 
+import { getLastSender } from "../../../../../utils/getLastSender";
+
 const formatDate = (time) => {
     if (!time) return "";
     const date = new Date(time);
@@ -32,6 +34,7 @@ export default function SearchListItem({ isActive, user, onUserSelect }) {
                     <div className={classes.user}>
                         <span className={classes.name}>{user.name}</span>
                         <span className={classes.lastMessage}>
+                            {getLastSender(user.chats) === "You" && "You: "}
                             {user.lastMessage}
                         </span>
                     </div>

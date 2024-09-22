@@ -14,6 +14,16 @@
     align-items: center;
 }
 
+.icon{
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.iconReverse{
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
 .avatar{
     width: 80px;
     height: 80px;
@@ -52,5 +62,11 @@
     display: flex;
     flex-direction: column;
     gap:16px;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.hidden{
+    opacity: 0;
 }
 

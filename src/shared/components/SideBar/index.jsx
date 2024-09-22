@@ -10,6 +10,10 @@ import SideBarItem from "./SideBarItem";
 
 export default function SideBar() {
     const [currentId, setCurrentId] = useState("2");
+    const [isShown, setIsShown] = useState(true);
+    const handleShowSideBar = () => {
+        setIsShown((prev) => !prev);
+    };
     return (
         <div className={classes.sideBar}>
             <div className={classes.context}>
@@ -18,13 +22,28 @@ export default function SideBar() {
                 </div>
                 <div className={classes.name}>
                     <span>Jimi Hendrix</span>
-                    <FontAwesomeIcon
-                        icon={faChevronDown}
-                        size="xs"
-                        color="#000"
-                    />
+                    <div
+                        className={
+                            isShown
+                                ? `${classes.icon}`
+                                : `${classes.icon} ${classes.iconReverse}`
+                        }
+                        onClick={handleShowSideBar}
+                    >
+                        <FontAwesomeIcon
+                            icon={faChevronDown}
+                            size="xs"
+                            color="#000"
+                        />
+                    </div>
                 </div>
-                <ul className={classes.sideBarList}>
+                <ul
+                    className={
+                        isShown
+                            ? `${classes.sideBarList}`
+                            : `${classes.sideBarList} ${classes.hidden}`
+                    }
+                >
                     {sideBarItems.map((item, index) => (
                         <SideBarItem
                             item={item}

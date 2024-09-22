@@ -4,7 +4,7 @@ import classes from "./styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-import sideBarItems from "../../constants/SideBarItems";
+import { sideBarItems } from "../../constants/sideBarItems";
 
 import SideBarItem from "./SideBarItem";
 

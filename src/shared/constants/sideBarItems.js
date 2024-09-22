@@ -7,7 +7,7 @@ import {
     faTag,
 } from "@fortawesome/free-solid-svg-icons";
 
-const sideBarItems = [
+export const sideBarItems = [
     {
         id: "1",
         name: "Properties",
@@ -24,5 +24,3 @@ const sideBarItems = [
     { id: "5", name: "Documents", icon: faFile },
     { id: "6", name: "Settings", icon: faGear },
 ];
-
-export default sideBarItems;

@@ -1,11 +1,10 @@
 import classes from "./styles.module.css";
 
-// Helper function to format the time to dd/mm
 const formatDate = (time) => {
-    if (!time) return ""; // Handle cases where time is undefined or null
+    if (!time) return "";
     const date = new Date(time);
-    const day = String(date.getDate()).padStart(2, "0"); // Get day and add leading 0 if necessary
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Get month (0-indexed) and add leading 0
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     return `${day}/${month}`;
 };
 
@@ -33,12 +32,18 @@ export default function SearchListItem({ user, onUserSelect }) {
                     </span>
                 </div>
                 <div className={classes.status}>
-                    {/* Use the helper function to format the lastMessageTime */}
                     <span className={classes.time}>
                         {formatDate(user.lastMessageTime)}
                     </span>
-                    <div className={classes.unread}>
-                        <span>5</span>
+                    <div
+                        className={classes.unread}
+                        style={
+                            user.unreadMessages === 0
+                                ? { opacity: "0" }
+                                : { opacity: "1" }
+                        }
+                    >
+                        <span>{user.unreadMessages}</span>
                     </div>
                 </div>
             </div>

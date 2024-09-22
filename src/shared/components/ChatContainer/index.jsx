@@ -5,13 +5,12 @@ import classes from "./styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ChatList from "./ChatList";
 import ChatWindow from "./ChatWindow";
-import { mockUsers as initialUsers } from "../../constants/mockUsers"; // Import mock users
+import { mockUsers as initialUsers } from "../../constants/mockUsers";
 
 export default function ChatContainer() {
     const [selectedUser, setSelectedUser] = useState(null);
     const [users, setUsers] = useState([]);
 
-    // Helper function to update lastMessage and lastMessageTime for each user
     const updateUsersWithLastMessage = (users) => {
         return users.map((user) => {
             const lastChat = user.chats[user.chats.length - 1];
@@ -23,18 +22,16 @@ export default function ChatContainer() {
         });
     };
 
-    // Load users from localStorage or fallback to mockUsers, and update lastMessage and lastMessageTime
     useEffect(() => {
         const storedUsers = localStorage.getItem("users");
         if (storedUsers) {
             const parsedUsers = JSON.parse(storedUsers);
-            setUsers(updateUsersWithLastMessage(parsedUsers)); // Update with lastMessage
+            setUsers(updateUsersWithLastMessage(parsedUsers));
         } else {
-            setUsers(updateUsersWithLastMessage(initialUsers)); // Initialize with mockUsers
+            setUsers(updateUsersWithLastMessage(initialUsers));
         }
     }, []);
 
-    // Update localStorage whenever users state changes
     useEffect(() => {
         if (users.length > 0) {
             localStorage.setItem("users", JSON.stringify(users));
@@ -46,7 +43,6 @@ export default function ChatContainer() {
         console.log("Selected User:", user);
     };
 
-    // Function to update the user's lastMessage and lastMessageTime after sending a new message
     const handleUpdateChats = (updatedUser) => {
         const updatedUsers = users.map((user) =>
             user.id === updatedUser.id
@@ -87,7 +83,7 @@ export default function ChatContainer() {
                 {selectedUser ? (
                     <ChatWindow
                         user={selectedUser}
-                        onUpdateChats={handleUpdateChats} // Pass function to update lastMessage and lastMessageTime
+                        onUpdateChats={handleUpdateChats}
                     />
                 ) : (
                     <div className="select-user-message">

@@ -8,14 +8,30 @@ export default function ChatList({ users, onUserSelect }) {
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [searchInput, setSearchInput] = useState("");
 
-    const handleUserClick = (user) => {
-        setSelectedUserId(user.id);
-        onUserSelect(user);
-    };
+    const sortedUsers = users
+        .filter((user) => user.chats.length > 0)
+        .sort((a, b) => {
+            const lastMessageA = a.chats[a.chats.length - 1];
+            const lastMessageB = b.chats[b.chats.length - 1];
 
-    const filteredUsers = users.filter((user) =>
+            if (!lastMessageA || !lastMessageB) return 0;
+
+            return lastMessageB.timestamp - lastMessageA.timestamp;
+        });
+
+    const filteredUsers = sortedUsers.filter((user) =>
         user.name.toLowerCase().includes(searchInput.toLowerCase())
     );
+
+    const handleUserClick = (user) => {
+        setSelectedUserId(user.id);
+
+        const updatedUsers = users.map((u) =>
+            u.id === user.id ? { ...u, unreadMessages: 0 } : u
+        );
+
+        onUserSelect({ ...user, unreadMessages: 0 });
+    };
 
     return (
         <div className={classes.chatList}>
@@ -35,8 +51,6 @@ export default function ChatList({ users, onUserSelect }) {
                     <SearchListItem
                         key={user.id}
                         user={user}
-                        lastMessage={user.lastMessage}
-                        lastMessageTime={user.lastMessageTime}
                         onUserSelect={() => handleUserClick(user)}
                     />
                 ))}

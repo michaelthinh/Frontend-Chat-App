@@ -1,4 +1,4 @@
-import { getLastMessage, formatTimeSent } from "../../utils/timeFormatting";
+import { getLastMessage } from "../../utils/timeFormatting";
 
 export const mockUsers = [
     {
@@ -22,6 +22,7 @@ export const mockUsers = [
                 timestamp: 1695318600000,
             },
         ],
+        unreadMessages: 1,
     },
     {
         id: 2,
@@ -44,6 +45,7 @@ export const mockUsers = [
                 timestamp: 1695288600000,
             },
         ],
+        unreadMessages: 2,
     },
     {
         id: 3,
@@ -61,6 +63,7 @@ export const mockUsers = [
                 timestamp: 1695258000000,
             },
         ],
+        unreadMessages: 0,
     },
     {
         id: 4,
@@ -78,6 +81,7 @@ export const mockUsers = [
                 timestamp: 1695228000000,
             },
         ],
+        unreadMessages: 0,
     },
     {
         id: 5,
@@ -95,6 +99,7 @@ export const mockUsers = [
                 timestamp: 1695198000000,
             },
         ],
+        unreadMessages: 0,
     },
     {
         id: 6,
@@ -112,6 +117,7 @@ export const mockUsers = [
                 timestamp: 1695168000000,
             },
         ],
+        unreadMessages: 0,
     },
     {
         id: 7,
@@ -129,6 +135,7 @@ export const mockUsers = [
                 timestamp: 1695138000000,
             },
         ],
+        unreadMessages: 0,
     },
     {
         id: 8,
@@ -146,6 +153,7 @@ export const mockUsers = [
                 timestamp: 1695108000000,
             },
         ],
+        unreadMessages: 0,
     },
     {
         id: 9,
@@ -163,6 +171,7 @@ export const mockUsers = [
                 timestamp: 1695078000000,
             },
         ],
+        unreadMessages: 0,
     },
     {
         id: 10,
@@ -180,6 +189,7 @@ export const mockUsers = [
                 timestamp: 1695048000000,
             },
         ],
+        unreadMessages: 0,
     },
 ];
 
